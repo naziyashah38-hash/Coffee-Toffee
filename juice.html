@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Juices Menu</title>
+    <style>
+        :root {
+            --primary-orange: #e67e22; /* Fresh Citrus Orange */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+            --accent-yellow: #f1c40f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: var(--primary-orange);
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            color: var(--accent-yellow);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .item-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+        }
+
+        .item-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+        
+        <header>
+            <h1>JUICES</h1>
+            <p>100% Cold-pressed sunshine in a glass.</p>
+        </header>
+
+        <div class="menu-list">
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Sunrise Glow</h3>
+                    <p>Orange, carrot, ginger, and a hint of turmeric.</p>
+                </div>
+                <div class="price">$6.50</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Green Detox</h3>
+                    <p>Green apple, cucumber, kale, lemon, and mint.</p>
+                </div>
+                <div class="price">$7.00</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Berry Refresh</h3>
+                    <p>Watermelon, strawberry, and lime zest.</p>
+                </div>
+                <div class="price">$6.75</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Classic OJ</h3>
+                    <p>Freshly squeezed Valencia oranges with pulp.</p>
+                </div>
+                <div class="price">$5.00</div>
+            </div>
+
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #aaa;">
+            <p>&copy; 2026 Your Cafe Name</p>
+        </footer>
+    </div>
+
+</body>
+</html>

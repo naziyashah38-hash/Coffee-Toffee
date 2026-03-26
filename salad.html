@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salads Menu | Fresh & Green</title>
+    <style>
+        :root {
+            --primary-green: #556b2f; /* Dark Olive Green */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+            --accent-green: #a9ba9d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: var(--accent-green);
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            color: var(--primary-green);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+
+        .item-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--primary-green);
+        }
+
+        .item-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+        
+        <header>
+            <h1>SALADS</h1>
+            <p>Fresh from the garden to your plate.</p>
+        </header>
+
+        <div class="menu-list">
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Garden Harvest</h3>
+                    <p>Mixed greens, cherry tomatoes, cucumbers, and balsamic vinaigrette.</p>
+                </div>
+                <div class="price">$9.50</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Greek Goddess</h3>
+                    <p>Crisp romaine, kalamata olives, feta cheese, and red onion.</p>
+                </div>
+                <div class="price">$11.00</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Quinoa Power Bowl</h3>
+                    <p>Organic quinoa, roasted sweet potatoes, kale, and tahini dressing.</p>
+                </div>
+                <div class="price">$12.50</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Classic Caesar</h3>
+                    <p>Romaine hearts, garlic croutons, and house-made Caesar dressing.</p>
+                </div>
+                <div class="price">$10.00</div>
+            </div>
+
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #aaa;">
+            <p>&copy; 2026 Your Cafe Name</p>
+        </footer>
+    </div>
+
+</body>
+</html>

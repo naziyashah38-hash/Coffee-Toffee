@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snacks Menu</title>
+    <style>
+        :root {
+            --primary-honey: #bc6c25; /* Warm snack-themed gold/brown */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-honey);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #d4a373;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            opacity: 0.7;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+
+        .item-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--primary-honey);
+        }
+
+        .item-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+        
+        <header>
+            <h1>SNACKS</h1>
+            <p>Snacks are my love language.</p>
+        </header>
+
+        <div class="menu-list">
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, golden-brown pastry made with real French butter.</p>
+                </div>
+                <div class="price">$3.50</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Avocado Toast</h3>
+                    <p>Smashed avocado, chili flakes, and a squeeze of lemon on sourdough.</p>
+                </div>
+                <div class="price">$8.00</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Assorted Macarons</h3>
+                    <p>A set of three: Salted Caramel, Pistachio, and Raspberry.</p>
+                </div>
+                <div class="price">$6.50</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Cheese & Crackers</h3>
+                    <p>A selection of artisan cheeses served with honey and nuts.</p>
+                </div>
+                <div class="price">$9.50</div>
+            </div>
+
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #aaa;">
+            <p>&copy; 2026 Your Cafe Name</p>
+        </footer>
+    </div>
+
+</body>
+</html>

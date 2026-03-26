@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolates Menu</title>
+    <style>
+        :root {
+            --primary-cocoa: #4e342e; /* Darker chocolate brown */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .back-button {
+            text-decoration: none;
+            color: #d4a373;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-cocoa);
+            letter-spacing: 2px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+        .item-info h3 { margin: 0; color: var(--primary-cocoa); }
+        .item-info p { margin: 5px 0 0; font-size: 0.9rem; color: #777; font-style: italic; }
+        .price { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+        
+        <h1>CHOCOLATES</h1>
+        <p style="text-align:center;">Chocolates are my first love .</p>
+
+        <div class="menu-list">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Dark Truffle</h3>
+                    <p>70% cocoa with a silky smooth ganache center.</p>
+                </div>
+                <div class="price">$3.50</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Sea Salt Caramel</h3>
+                    <p>Hand-poured caramel topped with Maldon sea salt.</p>
+                </div>
+                <div class="price">$3.00</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Hazelnut Praline</h3>
+                    <p>Roasted hazelnuts crushed into creamy milk chocolate.</p>
+                </div>
+                <div class="price">$3.50</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
