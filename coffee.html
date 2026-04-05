@@ -59,17 +59,20 @@
             padding-bottom: 10px;
         }
 
-        .item-info h3 {
+        .item-details h3 {
             margin: 0;
             font-size: 1.2rem;
             color: var(--primary-brown);
+              display: flex;
+            justify-content: space-between;
         }
 
-        .item-info p {
+        .item-details p {
             margin: 5px 0 0;
             font-size: 0.9rem;
             color: #777;
             font-style: italic;
+          
         }
 
         .price {
@@ -83,58 +86,64 @@
             font-size: 0.8rem;
             color: #aaa;
         }
-    </style>
+
+    </style> 
+  
 </head>
 <body>
 
-    <div class="container">
-        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+<div class="menu-container">
+     <a href="c(t)offee.html" class="back-button">← Back to home</a>
         
         <header>
             <h1>COFFEE</h1>
             <p>A hug in a mug, brewed to perfection.</p>
         </header>
 
-        <div class="menu-list">
-            
-            <div class="menu-item">
-                <div class="item-info">
-                    <h3>Caramel Macchiato</h3>
-                    <p>Freshly steamed milk with vanilla-flavored syrup marked with espresso.</p>
-                </div>
-                <div class="price">$5.50</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-info">
-                    <h3>Caffè Latte</h3>
-                    <p>Rich, full-bodied espresso in steamed milk, lightly topped with foam.</p>
-                </div>
-                <div class="price">$4.75</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-info">
-                    <h3>Flat White</h3>
-                    <p>Smooth ristretto shots of espresso with steamed whole milk.</p>
-                </div>
-                <div class="price">$5.00</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-info">
-                    <h3>Cold Brew</h3>
-                    <p>Slow-steeped for 20 hours for a super smooth finish.</p>
-                </div>
-                <div class="price">$4.25</div>
-            </div>
-
+    <div class="menu-item">
+        <div class="item-details">
+            <h3>Caramel Macchiato</h3>
+            <p>Freshly steamed milk with vanilla-flavored syrup marked with espresso.</p>
         </div>
-
-        <footer style="text-align: center;">
-            <p>&copy; 2026 C(T)offee</p>
-        </footer>
+        <!-- <span class="price">$5.50</span> -->
+        <span class="price">
+        $5.50 <button onclick="addToCart('Caramel Macchiato', 5.50)" style="cursor:pointer; margin-left:5px;">+</button>
+    </span>
     </div>
 
+    <div class="menu-item">
+        <div class="item-details">
+            <h3>Caffè Latte</h3>
+            <p>Rich, full-bodied espresso in steamed milk, lightly topped with foam.</p>
+        </div>
+        <!-- <span class="price">$4.75</span> -->
+          <span class="price">
+        $4.75 <button onclick="addToCart('Caffe Latte', 4.75)" style="cursor:pointer; margin-left:5px;">+</button>
+    </span>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <h3>Flat White</h3>
+            <p>Smooth ristretto shots of espresso with steamed whole milk.</p>
+        </div>
+        <!-- <span class="price">$5.00</span> -->
+          <span class="price">
+        $5.00 <button onclick="addToCart('Flat White', 5.00)" style="cursor:pointer; margin-left:5px;">+</button>
+    </span>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <h3>Cold Brew</h3>
+            <p>Slow-steeped for 20 hours for a super smooth finish.</p>
+        </div>
+        <!-- <span class="price">$4.25</span> -->
+          <span class="price">
+        $4.25 <button onclick="addToCart('Cold Brew', 4.25)" style="cursor:pointer; margin-left:5px;">+</button>
+    </span>
+    </div>
+
+    <script src="c(t)offee.js"></script>
 </body>
 </html>

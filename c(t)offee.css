@@ -52,6 +52,9 @@ input[type="text"] {
    font-size : 18px;
    display: inline-block;
 }
+.sign-up{
+    margin-left: 20px;
+}
 .cart{
   margin-top: 5px;
    color: slategray;
@@ -130,6 +133,10 @@ flex-shrink: 0;
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures image fills the rounded area */
+  transition: transform 0.4s ease; /* Smooth zoom effect */
+}
+.image-wrapper:hover img {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 
 .label {
@@ -189,7 +196,7 @@ flex-shrink: 0;
   width: 320px;
   text-align: center;
   position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px black;
 }
 .close-btn{
   position: absolute;
@@ -216,12 +223,66 @@ html{
   color: #4a2c2a;
   font-weight: bold;
 }
+/* add to cart */
+/* Hide the cart by default */
+.cart-hidden {
+    display: none;
+}
 
+/* Show the cart when this class is added */
+.cart-visible {
+    display: block !important;
+}
 
+/* Style to make it float in the top right */
+#cart-container {
+    position: absolute;
+    right: 20px;
+    top: 60px; /* Adjust based on your header height */
+    z-index: 1000;
+    background: #875029be;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px #63584b;
+    width: 300px;
+}
+/* buy now */
+.cart-buttons {
+    display: flex;
+    justify-content: space-between; /* This pushes one to the left and one to the right */
+    align-items: center;
+    margin-top: 15px;
+}
 
+.Buy-now-btn {
+    background-color: #715038be; 
+    color: #321c03;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-left: 100px;
+}
 
+.Buy-now-btn:hover {
+    background-color: #f8f5e9;
+}
 
-
-
-
-
+.clear-btn {
+    /* Optional: style your empty cart button to match */
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: blanchedalmond;
+    color: #1a0e01;
+    border: none;
+    font-weight: 200;
+    font-family: sans-serif;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
