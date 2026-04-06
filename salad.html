@@ -84,6 +84,40 @@
             color: var(--text-dark);
             font-size: 1.1rem;
         }
+                /* cart block */
+/* Container for the notification */
+#toast {
+  visibility: hidden;
+  /* min-width: 250px; */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Class to show the toast */
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
     </style>
 </head>
 <body>
@@ -148,6 +182,8 @@
             <p>&copy; 2026 Your Cafe Name</p>
         </footer>
     </div>
+            <div id="toast"> Item added to cart!</div>
+
 <script src="c(t)offee.js"></script>
 </body>
 </html>

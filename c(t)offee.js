@@ -42,6 +42,30 @@ function scrollToTop(){
   });
 }
 
+const modal3 = document.getElementById("buyModal");
+const btn3 = document.querySelector(".Buy-now-btn");
+const closeBtn3 = document.querySelectorAll(".close-btn")[2];
+
+btn3.onclick = (e) => {
+  e.preventDefault();
+  modal3.style.display = "block";
+}
+closeBtn3.onclick = () => {
+  modal3.style.display = "none";
+}
+window.onclick = (event) => {
+  if (event.target == modal3) {
+    modal3.style.display = "none";
+  }
+}
+
+function scrollToTop(){
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+}
+
 // add to cart
 
 function toggleCart() {
@@ -67,30 +91,32 @@ window.onclick = function(event) {
         cart.classList.add('cart-hidden');
     }
 }
-// 1. Function to add items to the cart
 function addToCart(name, price) {
-    // Get existing cart or start a new one
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     
     // Add the new item
     cart.push({ name: name, price: parseFloat(price) });
-    
-    // Save back to storage
     localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Show the custom message (Toast) instead of alert
+    const toast = document.getElementById("toast");
+    // toast.innerText = name + " added to your cart!";
+    toast.className = "show";
     
-    alert(name + " added to your cart!");
-    
-    // If the cart is currently open, refresh the display immediately
+    setTimeout(function() { 
+        toast.className = " ";
+    }, 3000);
+
+    // Refresh the display immediately
     displayCart();
 }
 
-// 2. Function to show the items in the HTML list
+// 2. Function to display the cart (Your current code)
 function displayCart() {
     const cartList = document.getElementById('cart-items-list');
     const totalPriceElement = document.getElementById('total-price');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Clear the current list to prevent duplicates
+
     cartList.innerHTML = "";
     let total = 0;
 
@@ -116,26 +142,6 @@ function clearCart() {
 window.onload = function() {
     displayCart();
 };
-
-// buy now button
-function checkout() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
-
-    // You can replace this with a redirect to a payment page later
-    alert("Thank you for your order! Your " + cart[0].name + " is being prepared.");
-    
-    // Clear the cart after purchase
-    localStorage.removeItem('cart');
-    displayCart();
-    
-    // Optional: Hide the cart after buying
-    toggleCart(); 
-}
 
 // search
 function searchMenu() {
@@ -179,4 +185,36 @@ function searchMenu() {
 
     // Show "Not Found" message if no cards are visible
     noResults.style.display = (visibleCount === 0) ? "block" : "none";
+}
+// placing order
+function confirmOrder(event) {
+    // 1. STOP the page from refreshing
+    if (event) event.preventDefault();
+
+    // 2. Clear the cart data from LocalStorage
+    localStorage.removeItem('cart');
+
+    // 3. Update the UI to show the empty cart
+    displayCart();
+
+    // 4. Show your custom Toast message
+    showToast("Thank you! Your order is being placed.. 😊");
+
+    // 5. CLOSE THE FORM (The fix for the "stuck" screen)
+    const modal = document.getElementById("buyModal");
+    if (modal) {
+        // Option A: If you use the CSS class we made
+        modal.classList.add("modal-hidden"); 
+        
+        // Option B: A backup way just in case the class fails
+        modal.style.display = "none"; 
+    }
+}
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    if (toast) {
+        toast.innerText = message;
+        toast.className = "show";
+        setTimeout(() => { toast.className = ""; }, 3000);
+    }
 }

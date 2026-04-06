@@ -22,33 +22,32 @@
       </div>
 
       <div class="search-container">
-        <input type="text" id="menuSearch"
-       placeholder="🔍Search your category...">
-       <button onclick="menuSearch()">Search</button>
+        <input type="text" id="menuSearch" placeholder="🔍Search your category...">
+        <button onclick="menuSearch()">Search</button>
       </div>
 
       <!-- <button type="submit" class="submit">Search</button> -->
 
 
-     <!-- 🛒Cart -->
-<div class="cart-wrapper">
-    <a href="javascript:void(0)" onclick="toggleCart()" class="cart-link">
-        🛒 Cart 
-        <!-- (<span id="cart-count"></span>) -->
-    </a>
-</div>
+      <!-- 🛒Cart -->
+      <div class="cart-wrapper">
+        <a href="javascript:void(0)" onclick="toggleCart()" class="cart-link">
+          🛒 Cart
+          <!-- (<span id="cart-count"></span>) -->
+        </a>
+      </div>
 
-<div id="cart-container" class="cart-hidden">
-    <h3>Your Order</h3>
-    <ul id="cart-items-list">
+      <div id="cart-container" class="cart-hidden">
+        <h3>Your Order</h3>
+        <ul id="cart-items-list">
         </ul>
-    <hr>
-    <div class="cart-total">
-        <strong>Total: $<span id="total-price">0.00</span></strong>
-    </div>
-    <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
-    <button  class="Buy-now-btn" onclick="checkout()">Buy Now</button>
-</div>
+        <hr>
+        <div class="cart-total">
+          <strong>Total: $<span id="total-price">0.00</span></strong>
+        </div>
+        <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+        <button <a href="buyModal" class="Buy-now-btn">Buy Now</button>
+      </div>
 
 
       <div class="sign-up">
@@ -177,8 +176,8 @@
 
     </div>
     <p id="noResults" style="display: none; text-align: center; color: #666;">
-    Oops! We couldn't find that on the menu.
-</p>
+      Oops! We couldn't find that on the menu.
+    </p>
 
     <!-- back to top -->
     <p class="back-to-top" onclick="scrollToTop()" style="cursor: pointer;" <b><strong>BACK TO TOP</strong></b></p>
@@ -228,10 +227,23 @@
     </div>
   </div>
 
-<!-- <p id="noResults" style="display: none; text-align: center; color: #666;">
-    Oops! We couldn't find that on the menu.
-</p> -->
+<div id="buyModal" class="modal3">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Fill your credentials</h2>
+         
+             <form onsubmit="confirmOrder(event)"> 
+                  <input type="text" placeholder="Name" required>
+                  <input type="number" placeholder="Phone Number" required>
+                  <input type="email" placeholder="Email" required>
+                  <input type="address" placeholder="Address" required>
+    
+    <button type="submit" class="submit-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
 
+<div id="toast"></div>
   <script src="c(t)offee.js"></script>
 
 

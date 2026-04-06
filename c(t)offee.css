@@ -177,7 +177,7 @@ flex-shrink: 0;
   padding: 5px;
 }
 
-.modal ,.modal2{
+.modal ,.modal2 , .modal3 {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -186,6 +186,10 @@ flex-shrink: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-hidden {
+    display: none !important;
+    pointer-events: none;
 }
 .modal-content{
   background-color: #1e1e1e;
@@ -198,6 +202,7 @@ flex-shrink: 0;
   position: relative;
   box-shadow: 0 5px 15px black;
 }
+
 .close-btn{
   position: absolute;
   top: 10px;
@@ -285,4 +290,34 @@ html{
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+}
+#toast {
+    visibility: hidden;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4b2c20; /* Deep Coffee Brown */
+    color: #fdf5e6;           /* Old Lace / Cream color text */
+    padding: 16px 30px;
+    border-radius: 50px;       /* Pill shape */
+    font-weight: bold;
+    z-index: 9999;             /* Ensure it's above the cart-container */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
 }
