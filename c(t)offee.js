@@ -100,7 +100,7 @@ function addToCart(name, price) {
 
     // Show the custom message (Toast) instead of alert
     const toast = document.getElementById("toast");
-    // toast.innerText = name + " added to your cart!";
+     toast.innerText = name + " added to your cart!";
     toast.className = "show";
     
     setTimeout(function() { 
@@ -143,6 +143,44 @@ window.onload = function() {
     displayCart();
 };
 
+// remove from cart
+function removeFromCart(index) {
+    // 1. Get the current cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // 2. Remove the item at the specific index
+    // .splice(index, howMany)
+    cart.splice(index, 1);
+
+    // 3. Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    toast.innerText = "Item removed from your cart!";
+    toast.className = "show";
+
+    if(cart.length === 0) {
+        toast.innerText = "Your cart is now empty!";
+    }
+    // 4. Refresh the display so the item disappears immediately
+    displayCart();
+}
+cart.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.marginBottom = "10px"; // Optional spacing
+
+    // We add a button that calls removeFromCart(index)
+    li.innerHTML = `
+        <span>${item.name}</span> 
+        <span>
+            $${item.price.toFixed(2)} 
+            <button onclick="removeFromCart(${index})" style="margin-left:10px; cursor:pointer;">Remove</button>
+        </span>
+    `;
+
+    cartlist.appendChild(li);
+    total += item.price;
+});
 // search
 function searchMenu() {
     // 1. Get the text from the search bar and convert to lowercase
@@ -198,7 +236,7 @@ function confirmOrder(event) {
     displayCart();
 
     // 4. Show your custom Toast message
-    showToast("Thank you! Your order is being placed.. 😊");
+    showToast("Thank you! Your order has been placed.😊");
 
     // 5. CLOSE THE FORM (The fix for the "stuck" screen)
     const modal = document.getElementById("buyModal");

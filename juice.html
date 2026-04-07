@@ -126,6 +126,17 @@
     <div class="container">
         <a href="c(t)offee.html" class="back-button">← Back to home</a>
         
+           <div id="cart-container" class="cart-hidden">
+        <h3>Your Order</h3>
+        <ul id="cart-items-list">
+        </ul>
+        <hr>
+        <div class="cart-total">
+          <strong>Total: $<span id="total-price">0.00</span></strong>
+        </div>
+        <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+        <!-- <button <a href="buyModal" class="Buy-now-btn">Buy Now</button> --> 
+      </div>
         <header>
             <h1>JUICES</h1>
             <p>100% Cold-pressed sunshine in a glass.</p>
@@ -141,6 +152,8 @@
                 <!-- <div class="price">$6.50</div> -->
                   <span class="price">
         $6.50<button onclick="addToCart('Sunrise Glow', 6.50)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Sunrise Glow', 6.50)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 
@@ -152,6 +165,8 @@
                 <!-- <div class="price">$7.00</div> -->
                  <span class="price">
         $7.00<button onclick="addToCart('Green Detox', 7.00)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Green Detox', 7.00)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 
@@ -163,6 +178,8 @@
                 <!-- <div class="price">$6.75</div> -->
                  <span class="price">
         $6.75<button onclick="addToCart('Berry Refresh', 6.75)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Berry Refresh', 6.75)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span> 
             </div>
 
@@ -174,6 +191,8 @@
                 <!-- <div class="price">$5.00</div> -->
                  <span class="price">
         $5.00<button onclick="addToCart('Classic OJ', 5.00)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Classic OJ', 5.00)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 

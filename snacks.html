@@ -123,6 +123,18 @@
 
     <div class="container">
         <a href="c(t)offee.html" class="back-button">← Back to home</a>
+
+           <div id="cart-container" class="cart-hidden">
+        <h3>Your Order</h3>
+        <ul id="cart-items-list">
+        </ul>
+        <hr>
+        <div class="cart-total">
+          <strong>Total: $<span id="total-price">0.00</span></strong>
+        </div>
+        <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+        <!-- <button <a href="buyModal" class="Buy-now-btn">Buy Now</button> --> 
+      </div>
         
         <header>
             <h1>SNACKS</h1>
@@ -139,6 +151,8 @@
                 <!-- <div class="price">$3.50</div> -->
                  <span class="price">
         $3.50<button onclick="addToCart('Butter Croissant', 3.50)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Butter Croissant', 3.50)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 
@@ -150,6 +164,8 @@
                 <!-- <div class="price">$8.00</div> -->
                  <span class="price">
         $8.00<button onclick="addToCart('Avocado Toast', 8.00)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Avocado Toast', 8.00)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 
@@ -161,6 +177,8 @@
                 <!-- <div class="price">$6.50</div> -->
                  <span class="price">
         $6.50<button onclick="addToCart('Assorted Macarons', 6.50)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Assorted Macarons', 6.50)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 
@@ -172,6 +190,8 @@
                 <!-- <div class="price">$9.50</div> -->
                  <span class="price">
         $9.50<button onclick="addToCart('Cheese & Crackers', 9.50)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Cheese & Crackers', 9.50)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
     </span>
             </div>
 

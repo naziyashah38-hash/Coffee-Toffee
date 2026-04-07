@@ -59,7 +59,12 @@ input[type="text"] {
   margin-top: 5px;
    color: slategray;
    font-weight: bold;
-
+}
+.cart-link{
+  text-decoration: none;
+  color:#5f2206;
+  font-weight: medium;
+  font-family:fantasy ;
 }
 .pocket{
   width: 100px;
@@ -83,9 +88,10 @@ input[type="text"] {
 
 .container {
   overflow: hidden;
-  width: 100%;
+  width: 100% ;
   padding: 20px 0;
   white-space: nowrap;
+  position: relative;
 }
 .wrapper {
   display: flex;
@@ -95,6 +101,8 @@ input[type="text"] {
 }
 .wrapper img {
   width: 16rem;
+  max-width: 40vw;
+  height: auto;
 flex-shrink: 0;
 }
 @keyframes animate {
@@ -102,7 +110,8 @@ flex-shrink: 0;
     transform: translateX(0);
   }
   to{
-    transform: translateX(calc(-5 *(16rem + 2rem)));
+    /* transform: translateX(calc(-5 *(16rem + 2rem))); */
+    transform: translateX(-50%);
   }
 }
 

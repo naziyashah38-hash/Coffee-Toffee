@@ -120,7 +120,6 @@
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
-
     </style> 
   
 </head>
@@ -128,6 +127,18 @@
 
 <div class="menu-container">
      <a href="c(t)offee.html" class="back-button">← Back to home</a>
+
+        <div id="cart-container" class="cart-hidden">
+        <h3>Your Order</h3>
+        <ul id="cart-items-list">
+        </ul>
+        <hr>
+        <div class="cart-total">
+          <strong>Total: $<span id="total-price">0.00</span></strong>
+        </div>
+        <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+        <!-- <button <a href="buyModal" class="Buy-now-btn">Buy Now</button> --> 
+      </div>
         
         <header>
             <h1>COFFEE</h1>
@@ -141,7 +152,10 @@
         </div>
         <!-- <span class="price">$5.50</span> -->
         <span class="price">
-        $5.50 <button onclick="addToCart('Caramel Macchiato', 5.50)" style="cursor:pointer; margin-left:5px;">+</button>
+        $5.50 
+        <button onclick="addToCart('Caramel Macchiato', 5.50)" style="cursor:pointer; margin-left:5px;">+</button>
+        <button onclick="removeFromCart('Caramel Macchiato', 5.50)" style="cursor:pointer; margin-left:5px;">-</button>
+
     </span>
     </div>
 
@@ -152,7 +166,9 @@
         </div>
         <!-- <span class="price">$4.75</span> -->
           <span class="price">
-        $4.75 <button onclick="addToCart('Caffe Latte', 4.75)" style="cursor:pointer; margin-left:5px;">+</button>
+        $4.75 <button onclick="addToCart('Caffè Latte', 4.75)" style="cursor:pointer; margin-left:5px;">+</button>
+                <button onclick="removeFromCart('Caffè Latte', 4.75)" style="cursor:pointer; margin-left:5px;">-</button>
+
     </span>
     </div>
 
@@ -164,6 +180,8 @@
         <!-- <span class="price">$5.00</span> -->
           <span class="price">
         $5.00 <button onclick="addToCart('Flat White', 5.00)" style="cursor:pointer; margin-left:5px;">+</button>
+                <button onclick="removeFromCart('Flat White', 5.00)" style="cursor:pointer; margin-left:5px;">-</button>
+
     </span>
     </div>
 
@@ -175,6 +193,8 @@
         <!-- <span class="price">$4.25</span> -->
           <span class="price">
         $4.25 <button onclick="addToCart('Cold Brew', 4.25)" style="cursor:pointer; margin-left:5px;">+</button>
+                <button onclick="removeFromCart('Cold Brew', 4.25)" style="cursor:pointer; margin-left:5px;">-</button>
+
     </span>
     </div>
 
