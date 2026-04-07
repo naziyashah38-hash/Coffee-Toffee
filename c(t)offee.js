@@ -236,7 +236,9 @@ function confirmOrder(event) {
     displayCart();
 
     // 4. Show your custom Toast message
+ 
     showToast("Thank you! Your order has been placed.😊");
+
 
     // 5. CLOSE THE FORM (The fix for the "stuck" screen)
     const modal = document.getElementById("buyModal");
