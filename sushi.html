@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Menu</title>
+    <style>
+        :root {
+            --primary-cocoa: #955151;
+            /* Darker chocolate brown */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: #c9e1b5;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #b33705;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-cocoa);
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+
+        .item-info h3 {
+            margin: 0;
+            color: var(--primary-cocoa);
+        }
+
+        .item-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        /* cart block */
+        /* Container for the notification */
+        #toast {
+            visibility: hidden;
+            /* min-width: 250px; */
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Class to show the toast */
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+
+        <div id="cart-container" class="cart-hidden">
+            <h3>Your Order</h3>
+            <ul id="cart-items-list">
+            </ul>
+            <hr>
+            <div class="cart-total">
+                <strong>Total: $<span id="total-price">0.00</span></strong>
+            </div>
+            <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+            <!-- <button <a href="buyModal" class="Buy-now-btn">Buy Now</button> -->
+        </div>
+
+        <h1>SUSHI</h1>
+        <p style="text-align:center;">"Life is short—start with a decadent treat made from scratch."</p>
+
+        <div class="menu-list">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>California Roll</h3>
+                    <p>Imitation crab, creamy avocado, and crisp cucumber.</p>
+                </div>
+                <!-- <div class="price">$3.50</div> -->
+                <span class="price">
+                    $8<button onclick="addToCart('California Roll', 8)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('California Roll', 8)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Philadelphia Roll</h3>
+                    <p>Smoked salmon, cool cream cheese, and cucumber.</p>
+                </div>
+                <!-- <div class="price">$3.00</div> -->
+                <span class="price">
+                    $10<button onclick="addToCart('Philadelphia Roll', 10)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Philadelphia Roll', 10)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Vegetarian Maki</h3>
+                    <p>Fresh pickled radish, avocado, cucumber, and roasted carrots.</p>
+                </div>
+                <!-- <div class="price">$3.50</div> -->
+                <span class="price">
+                    $7<button onclick="addToCart('Vegetarian Maki', 7)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Vegetarian Maki', 7)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Unagi Nigiri (2pc)</h3>
+                    <p>Slices of grilled freshwater eel over hand-pressed vinegared rice.</p>
+                </div>
+
+                <!-- <div class="price">$3.00</div> -->
+                <span class="price">
+                    $9<button onclick="addToCart('Unagi Nigiri (2pc)', 9)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Unagi Nigiri (2pc)', 9)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+ </div>
+  <b>Along with</b>
+  <br>
+              <div class="item-info">
+                    <h3>Miso Soup</h3>
+                    <p>Traditional soybean broth with tofu, seaweed, and green onions.</p>
+                </div>
+
+                <br>
+
+                       <div class="menu-item">
+                <div class="item-info">
+                    <h3>Salmon Sashimi (3pc)</h3>
+                    <p>Thick, chilled slices of premium raw Atlantic salmon.</p>
+                </div>
+
+                <!-- <div class="price">$3.50</div> -->
+                <span class="price">
+                    $12<button onclick="addToCart('Salmon Sashimi (3pc)', 12)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Salmon Sashimi (3pc)', 12)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="toast"> Item added to cart!</div>
+
+    <script src="c(t)offee.js"></script>
+</body>
+
+</html>

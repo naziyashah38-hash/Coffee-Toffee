@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Menu</title>
+    <style>
+        :root {
+            --primary-cocoa: rgb(131, 10, 30); /* Darker chocolate brown */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 192, 203, 0.307);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .back-button {
+            text-decoration: none;
+            color: #4f0324;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-cocoa);
+            letter-spacing: 2px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+        .item-info h3 { margin: 0; color: var(--primary-cocoa); }
+        .item-info p { margin: 5px 0 0; font-size: 0.9rem; color: #777; font-style: italic; }
+        .price { font-weight: bold; }
+                /* cart block */
+/* Container for the notification */
+#toast {
+  visibility: hidden;
+  /* min-width: 250px; */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Class to show the toast */
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+    </style>
+    
+</head>
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+        
+           <div id="cart-container" class="cart-hidden">
+        <h3>Your Order</h3>
+        <ul id="cart-items-list">
+        </ul>
+        <hr>
+        <div class="cart-total">
+          <strong>Total: $<span id="total-price">0.00</span></strong>
+        </div>
+        <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+        <!-- <button <a href="buyModal" class="Buy-now-btn">Buy Now</button> --> 
+      </div>
+        
+        <h1>JAMS</h1>
+        <p style="text-align:center;">Jams is best when paired with your favorite toast!</p>
+
+        <div class="menu-list">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Red Plum Jam</h3>
+                    <p>Handmade in Himachal Pradesh using fresh plums and cane sugar..</p>
+                </div>
+                <!-- <div class="price">$3.50</div> -->
+                 <span class="price">
+        $2.81<button onclick="addToCart('Red Plum Jam', 2.81)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Red Plum Jam', 2.81)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
+    </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>BlueBerry fruit Spread</h3>
+                    <p>A smooth, vibrant spread with real blueberries and no artificial preservatives</p>
+                </div>
+                <!-- <div class="price">$3.00</div> -->
+                 <span class="price">
+        $2.16<button onclick="addToCart('BlueBerry fruit Spread', 2.16)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('BlueBerry fruit Spread', 2.16)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
+    </span>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Scottish StrawBerry jam</h3>
+                    <p>Traditional Scottish preserve made in open copper pans with whole strawberries.</p>
+                </div>
+                <!-- <div class="price">$3.50</div> -->
+                 <span class="price">
+        $5.29<button onclick="addToCart('Scottish StrawBerry jam', 5.29)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Scottish StrawBerry jam', 5.29)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
+    </span>
+            </div>
+
+                        <div class="menu-item">
+                <div class="item-info">
+                    <h3>Mixed Fruit Jam</h3>
+                    <p>All time favorite with a blend of seasonal fruits.</p>
+                </div>
+                <!-- <div class="price">$3.00</div> -->
+                 <span class="price">
+        $3.16<button onclick="addToCart('Mixed Fruit Jam', 3.16)" style="cursor:pointer; margin-left:5px;">+</button>
+                        <button onclick="removeFromCart('Mixed Fruit Jam', 3.16)" style="cursor:pointer; margin-left:5px;">-</button>
+                    
+    </span>
+            </div>
+        </div>
+    </div>
+            <div id="toast"> Item added to cart!</div>
+
+<script src="c(t)offee.js"></script>
+</body>
+</html>

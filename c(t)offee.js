@@ -107,6 +107,7 @@ function addToCart(name, price) {
         toast.className = " ";
     }, 3000);
 
+
     // Refresh the display immediately
     displayCart();
 }
@@ -144,23 +145,37 @@ window.onload = function() {
 };
 
 // remove from cart
-function removeFromCart(index) {
-    // 1. Get the current cart from localStorage
+
+function removeFromCart(itemName) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // 2. Remove the item at the specific index
-    // .splice(index, howMany)
-    cart.splice(index, 1);
+    // 1. Find the index of the FIRST item that matches the name
+    const index = cart.findIndex(item => item.name === itemName);
 
-    // 3. Save the updated cart back to localStorage
+    if (index !== -1) {
+        // 2. If you are using quantities, check the number first
+        if (cart[index].quantity > 1) {
+            cart[index].quantity -= 1; 
+        } else {
+            // 3. If quantity is 1 (or you aren't using quantities), remove just that one item
+            cart.splice(index, 1);
+        }
+    }
+    //  3. Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-    toast.innerText = "Item removed from your cart!";
+    toast.innerText = `${itemName} removed from your cart!`;
     toast.className = "show";
 
     if(cart.length === 0) {
         toast.innerText = "Your cart is now empty!";
     }
-    // 4. Refresh the display so the item disappears immediately
+
+    setTimeout(function() { 
+        toast.className = " ";
+    }, 3000);
+
+    // 4. Save and Update UI
+    localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
 }
 cart.forEach((item, index) => {
@@ -174,7 +189,7 @@ cart.forEach((item, index) => {
         <span>${item.name}</span> 
         <span>
             $${item.price.toFixed(2)} 
-            <button onclick="removeFromCart(${index})" style="margin-left:10px; cursor:pointer;">Remove</button>
+            <button onclick="removeFromCart(${index})" style="margin-left:10px; cursor:pointer;">-</button>
         </span>
     `;
 
@@ -238,7 +253,6 @@ function confirmOrder(event) {
     // 4. Show your custom Toast message
  
     showToast("Thank you! Your order has been placed.😊");
-
 
     // 5. CLOSE THE FORM (The fix for the "stuck" screen)
     const modal = document.getElementById("buyModal");

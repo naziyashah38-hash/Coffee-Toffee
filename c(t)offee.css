@@ -62,7 +62,7 @@ input[type="text"] {
 }
 .cart-link{
   text-decoration: none;
-  color:#5f2206;
+  color:#965f46;
   font-weight: medium;
   font-family:fantasy ;
 }
@@ -115,7 +115,7 @@ flex-shrink: 0;
   }
 }
 
-.product {
+.product , .product1 , .regional {
   display: flex;
   gap: 60px;
   justify-content: center;
@@ -124,7 +124,7 @@ flex-shrink: 0;
 
 }
 
-.category-card {
+.category-card  {
   text-align: center;
   width: 250px;
 }
@@ -152,7 +152,7 @@ flex-shrink: 0;
   margin-top: 12px;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #333;
+  color: black;
 }
 
 .panel1{
@@ -329,4 +329,65 @@ html{
 @keyframes fadeout {
     from { bottom: 30px; opacity: 1; }
     to { bottom: 0; opacity: 0; }
+}
+
+.regional-touch{
+  display: flex;
+  justify-content: center;
+  margin-left: 100px;
+  /* font-family: 'Georgia', serif; */
+ font-family:  'Montserrat', sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: 4px;
+ text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+  font-weight: bold;
+  font-size: 28px;
+  color: #341407;
+}
+@keyframes revealFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.regional-touch {
+  /* This tells the browser to animate based on scroll position */
+  animation: revealFromBottom linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%; /* Starts at bottom, finishes 30% up the screen */
+}
+   .hp {
+       display: block;
+       font-weight: bold;
+       color: var(--text-dark);
+       font-size: 1.1rem;
+       text-align: center;
+        /* margin-top: 8px; */
+        }
+.hp button {
+  background-color: #3c1502; 
+    color: wheat;
+    border: none;
+    /* padding: 2px 8px; */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.hp button:hover {
+ background-color: #f8f5e9;
+  color: #3c1502;
+  opacity: 0.8;
+}
+.des{
+  font-size: 0.9rem;
+  /* background-color: #fff9e36e; */
+  /* color: rgb(63, 2, 22); */
+  color: #351804;
+  font-weight: bold;
+ padding: 0;
 }

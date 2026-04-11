@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Menu</title>
+    <style>
+        :root {
+            --primary-cocoa: rgb(112, 5, 5);
+            /* Darker chocolate brown */
+            --soft-beige: #F9F5F2;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--soft-beige);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgb(242, 228, 228);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #b33705;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-cocoa);
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 10px;
+        }
+
+        .item-info h3 {
+            margin: 0;
+            color: var(--primary-cocoa);
+        }
+
+        .item-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        /* cart block */
+        /* Container for the notification */
+        #toast {
+            visibility: hidden;
+            /* min-width: 250px; */
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Class to show the toast */
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="c(t)offee.html" class="back-button">← Back to home</a>
+
+        <div id="cart-container" class="cart-hidden">
+            <h3>Your Order</h3>
+            <ul id="cart-items-list">
+            </ul>
+            <hr>
+            <div class="cart-total">
+                <strong>Total: $<span id="total-price">0.00</span></strong>
+            </div>
+            <button onclick="clearCart()" class="clear-btn">Empty Cart</button>
+            <!-- <button <a href="buyModal" class="Buy-now-btn">Buy Now</button> -->
+        </div>
+
+        <h1>SAUCES</h1>
+        <p style="text-align:center;">Sauces are the perfect complement to your favorite dishes!</p>
+
+        <div class="menu-list">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Tomato Chilli Sauce</h3>
+                    <p>A unique Indian blend of tomatoes, spicy chillies, garlic, and ginger.</p>
+                </div>
+                <!-- <div class="price">$3.50</div> -->
+                <span class="price">
+                    $1.92<button onclick="addToCart('Tomato Chilli Sauce', 1.92)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Tomato Chilli Sauce', 1.92)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Chings Secret Schezwan Stir fry</h3>
+                    <p>A blend of ginger, garlic, and red chillies, designed to coat noodles or paneer.</p>
+                </div>
+                <!-- <div class="price">$3.00</div> -->
+                <span class="price">
+                    $0.92<button onclick="addToCart('Chings Secret Schezwan Stir fry', 0.92)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Chings Secret Schezwan Stir fry', 0.92)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Sweet Soya Sauce</h3>
+                    <p>A rich and savory sauce made with soybeans, wheat, and a blend of spices.</p>
+                </div>
+                <!-- <div class="price">$3.50</div> -->
+                <span class="price">
+                    $3.57<button onclick="addToCart('Sweet Soya Sauce', 3.57)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Sweet Soya Sauce', 3.57)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Oyster Sauce</h3>
+                    <p>An umami-rich sauce made with oyster extracts and cornstarch.</p>
+                </div>
+                <!-- <div class="price">$3.00</div> -->
+                <span class="price">
+                    $3.30<button onclick="addToCart('Oyster Sauce', 3.30)"
+                        style="cursor:pointer; margin-left:5px;">+</button>
+                    <button onclick="removeFromCart('Oyster Sauce', 3.30)"
+                        style="cursor:pointer; margin-left:5px;">-</button>
+
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="toast"> Item added to cart!</div>
+
+    <script src="c(t)offee.js"></script>
+</body>
+
+</html>
