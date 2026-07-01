@@ -100,7 +100,7 @@ function addToCart(name, price) {
 
     // Show the custom message (Toast) instead of alert
     const toast = document.getElementById("toast");
-     toast.innerText = name + " added to your cart!";
+     toast.innerText = name + " added to your cart!😍";
     toast.className = "show";
     
     setTimeout(function() { 
@@ -137,6 +137,9 @@ function displayCart() {
 function clearCart() {
     localStorage.removeItem('cart');
     displayCart();
+    const toast = document.getElementById("toast");
+    toast.innerText = "Your cart has been cleared!🗑️";
+    toast.className = "show";  
 }
 
 // 4. Ensure the cart displays as soon as the home page loads
@@ -163,16 +166,16 @@ function removeFromCart(itemName) {
     }
     //  3. Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-    toast.innerText = `${itemName} removed from your cart!`;
+    toast.innerText = `${itemName} removed from your cart!😞`;
     toast.className = "show";
 
     if(cart.length === 0) {
-        toast.innerText = "Your cart is now empty!";
+        toast.innerText = "Your cart is now empty!🥺";
     }
 
     setTimeout(function() { 
         toast.className = " ";
-    }, 3000);
+    }, 4000);
 
     // 4. Save and Update UI
     localStorage.setItem('cart', JSON.stringify(cart));
